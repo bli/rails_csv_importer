@@ -37,7 +37,7 @@ Call Foo.import_from_csv(import_config, content, options = {})
                      If omitted, the heading will be the humanized form of the key.
                      (_Optional_)
 
-             There are four different ways to specify how the column is processed:
+             There are three different ways to specify how the column is processed:
 
              [:value_method] A lambda to convert the column value from csv into the attribute value in the model.
                              Class Acts::RailsCsvImporter::ValueMethods provides some pre-defined value methods.
@@ -45,9 +45,6 @@ Call Foo.import_from_csv(import_config, content, options = {})
 
              [:record_method] A lambda to find the associated record if this attribue is a foreign key.
                               (_Optional_)
-
-             [:virtual] If set to true, the column is not mapped to a model attribute.
-                        Usually the column will be used together with other columns.
 
              [None of the above options present] The column value will be used without any conversion.
 
