@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.email           = 'libin1231@gmail.com'
   s.files           = Dir['MIT-LICENSE', 'README.rdoc', 'lib/**/*', 'rails/init.rb']
   s.require_path    = 'lib'
-  s.homepage        = 'http://rubygems.org/gems/rails_csv_importer'
+  s.homepage        = 'https://github.com/benli/rails_csv_importer'
 end
 

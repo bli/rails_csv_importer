@@ -6,9 +6,11 @@ Both Rails 2 and 3 are supported.
 
 == Usage
 
-1. Add acts_as_rails_csv_importer to your model
-2. Call YourModel.get_csv_import_template to generate the CSV template.
-3. Call YourModel.import_from_csv in your controller to import data from a CSV file uploaded.
+1. If used in Rails 2, add 'gem fastercsv' to Gemfile.
+2. Add 'gem rails_csv_importer' to Gemfile.
+3. Add acts_as_rails_csv_importer to your model.
+4. Call YourModel.get_csv_import_template to generate the CSV template.
+5. Call YourModel.import_from_csv in your controller to import data from a CSV file uploaded.
 
 === In a Rails Model
 
@@ -74,7 +76,7 @@ class Material < ActiveRecord::Base
   acts_as_rails_csv_importer
 end
 
-class MaterialsController  < ApplicationController
+class MaterialsController < ApplicationController
   IMPORT_CONFIG = {
       :mapping => {
         'name' => {},
