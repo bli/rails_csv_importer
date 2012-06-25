@@ -1,4 +1,11 @@
-require 'faster_csv'
+if RUBY_VERSION >= "1.9"
+  # CSV in ruby 1.9 is FasterCSV plus support for Ruby 1.9's m17n encoding engine
+  require 'csv'
+  FasterCSV = CSV
+else
+  require 'faster_csv'
+end
+require 'iconv'
 
 module Acts # :nodoc
   module RailsCsvImporter
