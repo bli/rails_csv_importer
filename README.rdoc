@@ -1,0 +1,123 @@
+= RailsCsvImporter
+
+Define configuration in a hash and then import Ruby on Rails model data from CSV with one method call.
+
+Both Rails 2 and 3 are supported.
+
+== Usage
+
+1. Add acts_as_rails_csv_importer to your model
+2. Call YourModel.get_csv_import_template to generate the CSV template.
+3. Call YourModel.import_from_csv in your controller to import data from a CSV file uploaded.
+
+=== In a Rails Model
+
+class Foo < ActiveRecord::Base
+  acts_as_rails_csv_importer
+end
+
+=== Generate CSV Template
+
+Call Foo.get_csv_import_template(import_config). See below for details on the parameter.
+
+=== Import From CSV
+
+Call Foo.import_from_csv(import_config, content, options = {})
+
+* import_config
+
+  A hash that defines what data are imported and how.
+
+  [:mapping] A hash that defines the columns in the csv. Each hash key is the model attribute name for the column.
+             Each value is a hash defining how the column is processed:
+
+             [:name] The heading that identify the column in the csv.
+                     If omitted, the heading will be the humanized form of the key.
+                     (_Optional_)
+
+             There are four different ways to specify how the column is processed:
+
+             [:value_method] A lambda to convert the column value from csv into the attribute value in the model.
+                             Class Acts::RailsCsvImporter::ValueMethods provides some pre-defined value methods.
+                             (_Optional_)
+
+             [:record_method] A lambda to find the associated record if this attribue is a foreign key.
+                              (_Optional_)
+
+             [:virtual] If set to true, the column is not mapped to a model attribute.
+                        Usually the column will be used together with other columns.
+
+             [None of the above options present] The column value will be used without any conversion.
+
+  [:find_existing] A lambda to find the existing record to update for a row.
+                   A new record is created if the lambda could not find an existing record and return nil.
+                   The row is passed as a hash to the lambda.
+                   If this parameter is omitted, a new record is created for each row.
+                   (_Optional_)
+
+* content
+
+  A string that contains the csv content to import from.
+
+* options
+
+  A hash of options for the import. (_Optional_)
+
+  [:partial_save] If true, any valid rows in the csv will be saved even if there are some invalid rows.
+                  Otherwise, data will be imported only when all rows are valid.
+
+Exception +Acts::RailsCsvImporter::RailsCsvImportError+ is thrown when there are errors duing the importing.
+
+== Example
+
+class Material < ActiveRecord::Base
+  acts_as_rails_csv_importer
+end
+
+class MaterialsController  < ApplicationController
+  IMPORT_CONFIG = {
+      :mapping => {
+        'name' => {},
+        'fragile' => {
+          :name => "Fragile?",
+          :value_method => Acts::RailsCsvImporter::ValueMethods.boolean_value_method
+        },
+        'category_id' =>  {:record_method => lambda { |v, row, mapping| Category.find_by_name(v) } },
+      },
+      :find_existing => lambda { |row| Material.find_by_name(row['name']) }
+  }
+
+  def download_template
+    headers["Content-Type"] = 'text/csv'
+    headers["Content-Disposition"] = 'attachment; filename="template.csv"'
+    render :text => Material.get_import_template(IMPORT_CONFIG)
+  end
+
+  def import
+    num_imported = Material.import_from_csv(IMPORT_CONFIG, params[:file_upload])
+    flash[:notice] = num_imported.to_s + " records imported successfully."
+  rescue  Acts::RailsCsvImporter::RailsCsvImportError => ex
+    @err_message = ex.errors.map { |err, row| err.is_a?(String) ? err : err.full_messages }.join(';')
+    render :template => :error
+  end
+end
+
+For more examples, refer to +test/rails_csv_importer_test.rb+
+
+== Download and installation
+
+The latest version of RailsCsvImporter can be installed with RubyGems:
+
+  % [sudo] gem install rails_csv_importer
+
+Source code can be downloaded on GitHub
+
+* https://github.com/benli/rails_csv_importer/tree/master
+
+
+== License
+
+RailsCsvImporter is released under the MIT license:
+
+* http://www.opensource.org/licenses/MIT
+

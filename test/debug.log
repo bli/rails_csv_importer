@@ -1,0 +1,656 @@
+# Logfile created on  4 Apr 2011 09:44AM by logger.rb
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (170.7ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (115.0ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (132.5ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (283.8ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (40.4ms)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('0')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (66.3ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (174.8ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.2ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (174.4ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (122.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMaterial Columns (0.8ms)[0m   [0mSHOW FIELDS FROM `materials`[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;35;1mMaterial Create (0.2ms)[0m   [0mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;36;1mSQL (108.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (112.6ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (158.1ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.1ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (132.5ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (94.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.1ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (98.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (61.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.1ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (122.3ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (191.3ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (57.5ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (149.0ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (86.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (81.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (67.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (102.2ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (134.6ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.3ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (145.2ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (94.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (97.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (82.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (108.5ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (141.3ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (56.9ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (140.5ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (63.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (38.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Create (0.3ms)[0m   [0mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;36;1mSQL (44.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` [0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (97.0ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (183.0ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.9ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (140.8ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (81.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (81.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (75.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (63.6ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (149.8ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.0ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (150.9ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (73.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (39.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (75.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (87.0ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (108.0ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (40.9ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (115.4ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (40.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (57.6ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.1ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (78.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (77.3ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (174.7ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (90.8ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (124.1ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (79.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (89.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (41.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (67.9ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (141.3ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.2ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (115.3ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (87.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (89.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (76.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.1ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (111.4ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (141.3ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.6ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (124.0ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (95.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (89.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (76.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (76.8ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (149.7ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.3ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (141.5ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (123.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (113.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.4ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (75.4ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (182.9ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (82.4ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (132.5ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (89.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (98.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (74.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (107.3ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (149.8ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (40.8ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (124.3ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (74.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (72.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (41.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.4ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (86.9ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (124.7ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (40.3ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (113.8ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (62.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (63.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (52.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.6ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (93.3ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (133.1ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (83.9ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (131.8ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.6ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (100.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (64.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (42.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (74.1ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (191.4ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (82.4ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (149.0ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (96.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (81.1ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (76.1ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (149.6ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.3ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (141.0ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (79.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (88.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (65.5ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (158.1ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.7ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (124.2ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (83.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (80.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (77.5ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (133.0ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (74.2ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (115.9ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (76.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (72.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (66.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.4ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (83.2ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (141.4ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.6ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (125.3ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (62.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (73.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (1.1ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (34.9ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (124.5ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (40.6ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (127.7ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (58.9ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (56.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.7ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` IS NULL) LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES(NULL, 0, NULL)[0m
+  [4;35;1mSQL (42.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.4ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (60.2ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (158.2ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.9ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (156.7ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (105.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.3ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (105.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` = 'Material001') LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES('Material001', 0, NULL)[0m
+  [4;35;1mSQL (39.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;36;1mMaterial Load (0.1ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (65.7ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (158.0ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.4ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (141.1ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (116.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (105.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.4ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` = 'Material001') LIMIT 1[0m
+  [4;36;1mMaterial Create (0.3ms)[0m   [0;1mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES('Material001', 0, NULL)[0m
+  [4;35;1mSQL (65.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.3ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;36;1mMaterial Load (0.1ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (172.1ms)[0m   [0mDROP TABLE `categories`[0m
+  [4;36;1mSQL (124.7ms)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (65.4ms)[0m   [0;1mDROP TABLE `materials`[0m
+  [4;35;1mSQL (149.2ms)[0m   [0mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `purchase_able` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM `schema_migrations`[0m
+  [4;36;1mCategory Columns (0.5ms)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;35;1mSQL (83.1ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.2ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;36;1mSQL (81.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mMaterial Columns (0.4ms)[0m   [0;1mSHOW FIELDS FROM `materials`[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` WHERE (`materials`.`name` = 'Material001') LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`name` = 'Category001') LIMIT 1[0m
+  [4;35;1mMaterial Create (0.1ms)[0m   [0mINSERT INTO `materials` (`name`, `purchase_able`, `category_id`) VALUES('Material001', 1, 1)[0m
+  [4;36;1mSQL (68.2ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mMaterial Load (0.3ms)[0m   [0mSELECT * FROM `materials` [0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mMaterial Load (0.1ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;36;1mMaterial Load (0.1ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mCategory Load (0.2ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+  [4;36;1mSQL (44.6ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (144.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (458.9ms)[0m   [0;1mDROP TABLE `categories`[0m
+  [4;35;1mSQL (323.8ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (163.4ms)[0m   [0mDROP TABLE `materials`[0m
+  [4;36;1mSQL (121.4ms)[0m   [0;1mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `fragile` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (28.5ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mCategory Columns (23.7ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (6.1ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;36;1mSQL (70.4ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;35;1mSQL (48.2ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mMaterial Columns (31.4ms)[0m   [0mSHOW FIELDS FROM `materials`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (63.7ms)[0m   [0;1mDROP TABLE `categories`[0m
+  [4;35;1mSQL (151.4ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (49.2ms)[0m   [0mDROP TABLE `materials`[0m
+  [4;36;1mSQL (112.3ms)[0m   [0;1mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `fragile` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mCategory Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.1ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;36;1mSQL (64.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;35;1mSQL (48.3ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mMaterial Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `materials`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (119.3ms)[0m   [0;1mDROP TABLE `categories`[0m
+  [4;35;1mSQL (116.4ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (57.7ms)[0m   [0mDROP TABLE `materials`[0m
+  [4;36;1mSQL (97.3ms)[0m   [0;1mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `fragile` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mCategory Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.1ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;36;1mSQL (53.8ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.1ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;35;1mSQL (57.4ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mMaterial Columns (1.6ms)[0m   [0mSHOW FIELDS FROM `materials`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (76.6ms)[0m   [0;1mDROP TABLE `categories`[0m
+  [4;35;1mSQL (133.0ms)[0m   [0mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255)) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (57.5ms)[0m   [0mDROP TABLE `materials`[0m
+  [4;36;1mSQL (164.9ms)[0m   [0;1mCREATE TABLE `materials` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `fragile` tinyint(1) DEFAULT 0, `category_id` int(11)) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mCategory Columns (0.5ms)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCategory Create (0.1ms)[0m   [0mINSERT INTO `categories` (`name`) VALUES('Category001')[0m
+  [4;36;1mSQL (62.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.2ms)[0m   [0;1mINSERT INTO `categories` (`name`) VALUES('Category002')[0m
+  [4;35;1mSQL (56.6ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mMaterial Columns (0.7ms)[0m   [0mSHOW FIELDS FROM `materials`[0m
+  [4;36;1mMaterial Load (0.4ms)[0m   [0;1mSELECT * FROM `materials` WHERE (`materials`.`name` = 'Material001') LIMIT 1[0m
+  [4;35;1mCategory Load (0.3ms)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`name` = 'Category001') LIMIT 1[0m
+  [4;36;1mMaterial Create (0.2ms)[0m   [0;1mINSERT INTO `materials` (`name`, `category_id`, `fragile`) VALUES('Material001', 1, 1)[0m
+  [4;35;1mSQL (58.7ms)[0m   [0mCOMMIT[0m
+  [4;36;1mMaterial Load (0.2ms)[0m   [0;1mSELECT * FROM `materials` [0m
+  [4;35;1mMaterial Load (0.2ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;36;1mMaterial Load (0.1ms)[0m   [0;1mSELECT * FROM `materials` LIMIT 1[0m
+  [4;35;1mMaterial Load (0.1ms)[0m   [0mSELECT * FROM `materials` LIMIT 1[0m
+  [4;36;1mCategory Load (0.2ms)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m

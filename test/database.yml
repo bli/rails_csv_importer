@@ -1,0 +1,12 @@
+mysql:
+  adapter: mysql
+  database: csv_importer
+  host: localhost
+  username: root
+  password:
+
+sqlite3:
+  adapter: sqlite3
+  database: test/db/csv_importer.sqlite3.db
+  timeout: 5000
+
